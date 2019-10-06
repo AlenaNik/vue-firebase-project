@@ -12,6 +12,13 @@
         </router-link>
       </li>
     </ul>
+    <h2>Navigation Controls</h2>
+    <ul>
+    <li><button @click="goBack">Go back</button></li>
+      <li>
+        <button @click="goHome">Riderect to home</button>
+      </li>
+    </ul>
   </nav>
 </template>
 <script>
@@ -20,6 +27,16 @@ export default {
   data() {
     return {
       userIds: [ '1', '2', '3', '4']
+    }
+  },
+  methods: {
+    goHome(){
+      this.$router.push({
+        name: 'Home'
+      })
+    },
+    goBack(){
+      this.$router.go(-1)
     }
   }
 }
