@@ -2,7 +2,9 @@
   <div id="all-friends">
       <h2>All Friends</h2>
       <div v-for="(friend, index) in friends" :key="index">
-       <span>  {{ friend.name }} </span>
+       <span
+       @click="unfriend(friend.name)"
+       >  {{ friend.name }} </span>
       </div>
   </div>
 </template>
@@ -10,14 +12,15 @@
 <script>
   export default {
     name: 'AllFriends',
+    props: ['friends'],
     data() {
       return {
-        friends : [
-          { name: 'Mario', online: false },
-          { name: 'María', online: true },
-          { name: 'Alicia', online: true },
-          { name: 'David', online: false }
-        ]
+
+      }
+    },
+    methods: {
+      unfriend(name){
+        this.$emit('delete', { name })
       }
     }
   }
