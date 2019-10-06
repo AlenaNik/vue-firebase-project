@@ -1,9 +1,15 @@
 <template>
     <nav>
-      <ul>
-        <li><a href="">Home</a></li>
-        <li><a href="">About</a></li>
-        <li><a href="">Contact</a></li>
+      <ul class="flex border-b center">
+        <li class="-mb-px mr-1"><a
+          class="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-indigo-700 font-semibold"
+          href="">Home</a></li>
+        <li class="mr-1"><a
+          class="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-indigo-700 font-semibold"
+          href="">About</a></li>
+        <li class="mr-1"><a
+          class="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-indigo-700 font-semibold"
+          href="">Contact</a></li>
       </ul>
     </nav>
 </template>
@@ -20,15 +26,5 @@
 </script>
 
 <style scoped>
-  nav {
-    text-align: center;
-  }
-  nav ul {
-    padding: 0;
-  }
-  nav ul li {
-    display: inline-block;
-    list-style-type: none;
-    margin: 0;
-  }
+
 </style>

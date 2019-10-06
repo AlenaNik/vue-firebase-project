@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Navbar/>
-    <h1>{{ title }}</h1>
+    <h1 class="font-bold bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3">{{ title }}</h1>
     <AllFriends :friends="friends" @delete="deleteFriend"/>
     <OnlineFriends :friends="friends"/>
     <Blogs/>

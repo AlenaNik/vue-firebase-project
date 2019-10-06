@@ -1,8 +1,8 @@
 <template>
   <div id="online-friends">
-    <h2>Online Friends</h2>
+    <h2 class="font-bold bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3">Online Friends</h2>
     <div v-for="(friend, index) in friends" :key="index">
-      <span v-if="friend.online === true"> {{ friend.name }}</span>
+      <span class="center text-red-600" v-if="friend.online === true"> {{ friend.name }}</span>
     </div>
   </div>
 </template>
