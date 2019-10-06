@@ -12,35 +12,35 @@
   </div>
 </template>
 <script>
-import axios from 'axios'
-   export default {
-     name: 'Blogs',
-     data() {
-       return {
-          starships: [],
-          searchTerm: ''
-       }
-     },
-     methods: {
+  import axios from 'axios'
+  export default {
+    name: 'Blogs',
+    data() {
+      return {
+        starships: [],
+        searchTerm: ''
+      }
+    },
+    methods: {
 
-     },
-     computed: {
-       filteredShips(){
-         return  this.starships.filter(ship => {
-           return ship.name.match(this.searchTerm)
-         })
-       }
-     },
-     created() {
-       axios.get('https://swapi.co/api/starships?format=json')
-         .then((res) => {
-           console.log(res);
-           this.starships = res.data.results
-         }).catch(err => {
-           console.log(err)
-       })
-     }
-   }
+    },
+    computed: {
+      filteredShips(){
+        return  this.starships.filter(ship => {
+          return ship.name.match(this.searchTerm)
+        })
+      }
+    },
+    created() {
+      axios.get('https://swapi.co/api/starships?format=json')
+        .then((res) => {
+          console.log(res);
+          this.starships = res.data.results
+        }).catch(err => {
+        console.log(err)
+      })
+    }
+  }
 </script>
 <style>
 
