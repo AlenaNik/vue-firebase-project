@@ -1,15 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/Home'
+import Home from '../components/Home'
 import About from "../components/About";
 import VueProfile from "../components/VueProfile";
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
-      path: '/home',
+      path: '/',
       name: 'Home',
       component: Home
     },
