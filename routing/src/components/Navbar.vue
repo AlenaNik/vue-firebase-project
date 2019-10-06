@@ -14,6 +14,7 @@
     </ul>
     <h2>Navigation Controls</h2>
     <ul>
+    <li><button @click="goForward">Go forward</button></li>
     <li><button @click="goBack">Go back</button></li>
       <li>
         <button @click="goHome">Riderect to home</button>
@@ -37,6 +38,9 @@ export default {
     },
     goBack(){
       this.$router.go(-1)
+    },
+    goForward(){
+      this.$router.go(+1)
     }
   }
 }
@@ -48,5 +52,9 @@ export default {
   }
   a {
     color: #42b983
+  }
+  ul li {
+    display: inline-block;
+    margin: 10px;
   }
 </style>
