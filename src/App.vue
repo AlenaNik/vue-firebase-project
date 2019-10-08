@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <Navbar />
-    <router-view/>
     <Index/>
   </div>
 </template>
