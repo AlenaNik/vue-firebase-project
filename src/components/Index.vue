@@ -2,11 +2,15 @@
   <div class="index container">
     <div class="card" v-for="day in days" :key="day.id">
       <div class="card-content">
+        <i
+          @click="deleteDay"
+          class="material-icons"
+          :style="{ 'cursor': 'pointer'}"
+        >delete</i>
           <p class="black-text">{{ day.title }}</p>
            <ul class="activities">
             <li v-for="(d, index) in day.activities" :key="index">
               <span
-                @click="deleteDay"
                 class="chip">{{ d }}</span>
             </li>
           </ul>
