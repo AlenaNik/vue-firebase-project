@@ -3,8 +3,8 @@
     <div class="card" v-for="day in days" :key="day.id">
       <div class="card-content">
         <i
-          @click="deleteDay"
-          class="material-icons"
+          @click="deleteDay(day.id)"
+          class="material-icons delete"
           :style="{ 'cursor': 'pointer'}"
         >delete</i>
           <p class="black-text">{{ day.title }}</p>
@@ -31,8 +31,10 @@ export default {
     }
   },
   methods: {
-    deleteDay(index){
-      this.days.splice(index, 1)
+    deleteDay(id){
+      this.days = this.days.filter(day => {
+        return day.id !== id
+      })
     }
   }
 }
@@ -57,5 +59,11 @@ export default {
 .index .activities li{
   display: inline-block;
 }
-
+.index .delete {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  color: #aaa;
+  font-size: 1.4em;
+}
 </style>
