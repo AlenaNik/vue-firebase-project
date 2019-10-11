@@ -20,13 +20,13 @@
 </template>
 
 <script>
+import db from '@/firebase/init'
+
 export default {
   name: 'Index',
   data () {
     return {
       days: [
-        { title: 'Rainy Day', slug: 'rainy-day', activities: ['stay inside', 'coffee', 'movie'], id: 1},
-        { title: 'Sunny Day', slug: 'sunny-day', activities: ['go outside', 'coffee to go', 'park'], id: 2}
       ]
     }
   },
@@ -36,6 +36,15 @@ export default {
         return day.id !== id
       })
     }
+  },
+  created() {
+    // fetch data
+    db.collection('days').get()
+      .then(snapshot => {
+        snapshot.forEach(doc => {
+          console.log(doc)
+        })
+      })
   }
 }
 </script>
