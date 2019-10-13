@@ -8,6 +8,10 @@
         <label for="title">Day: </label>
         <input type="text" name="title" v-model="title">
       </div>
+      <div v-for="(act, index) in activities" :key="index">
+        <label for="activity">Activity:</label>
+        <input type="text" name="activity" v-model="activities[index]">
+      </div>
       <div class="field add-a-day">
         <label for="add-an-activity">Add an activity</label>
         <input type="text" name="add-activity" @keydown.tab.prevent="addAct" v-model="next">
@@ -24,6 +28,9 @@
 </template>
 
 <script>
+  import db from '@/firebase/init'
+  import slugify from 'slugify'
+
   export default {
     name: 'AddADay',
     data() {
@@ -31,12 +38,32 @@
         title: null,
         next: null,
         activities: [],
-        feedback: null
+        feedback: null,
+        slug: null
       }
     },
     methods: {
       formMethod(){
-        console.log(this.title, this.activities)
+       if (this.title){
+         this.feedback = null;
+         // create slug
+         this.slug = slugify(this.title, {
+           replacement: '-',
+           remove: /[$*_+~.()'"!\-:@]/g,
+           lower: true
+         });
+         db.collection('days').add({
+           title: this.title,
+           activities: this.activities,
+           slug: this.slug
+         }).then(() => {
+           this.$router.push( { name: 'Index' })
+         }).catch(err => {
+           console.log(err)
+         })
+       } else {
+         this.feedback = 'You must enter a title'
+       }
       },
       addAct(){
         if(this.next){
