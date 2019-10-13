@@ -32,8 +32,11 @@ export default {
   },
   methods: {
     deleteDay(id){
-      this.days = this.days.filter(day => {
-        return day.id !== id
+    db.collection('days').doc(id).delete()
+      .then(() => {
+        this.days = this.days.filter(day => {
+          return day.id !== id
+        })
       })
     }
   },
