@@ -15,6 +15,11 @@
             </li>
           </ul>
       </div>
+      <span class="btn-floating btn-small halfway-fab pink">
+        <router-link :to="{ name: 'EditDay', params: { day_slug: day.slug }}">
+          <i class="material-icons edit">edit</i>
+        </router-link>
+      </span>
     </div>
   </div>
 </template>
