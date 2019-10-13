@@ -7,3 +7,6 @@ Second Project: Routing in Vue ($route Object), Router Links, Hash and Active Li
 <br />
 ![](https://media.giphy.com/media/PlatFXPmCqGBDEGM7I/giphy.gif)
 <br />
+Third Project: CRUD API, Firestore and firebase deployment
+<br />
+![](https://i.ibb.co/McyLtwg/Screenshot-2019-10-13-at-20-38-51.png)
