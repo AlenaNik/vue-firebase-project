@@ -42,7 +42,9 @@ export default {
     db.collection('days').get()
       .then(snapshot => {
         snapshot.forEach(doc => {
-          console.log(doc)
+          let day = doc.data();
+          day.id = doc.id;
+          this.days.push(day)
         })
       })
   }
