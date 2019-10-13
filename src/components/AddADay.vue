@@ -11,6 +11,7 @@
       <div v-for="(act, index) in activities" :key="index">
         <label for="activity">Activity:</label>
         <input type="text" name="activity" v-model="activities[index]">
+        <i class="material-icons delete" @click="deleteAct(act)">delete</i>
       </div>
       <div class="field add-a-day">
         <label for="add-an-activity">Add an activity</label>
@@ -73,6 +74,11 @@
         } else {
           this.feedback = 'Can\'t be empty!'
         }
+      },
+      deleteAct(act) {
+        this.activities = this.activities.filter(activity => {
+          return activity != act
+        })
       }
     }
   }
