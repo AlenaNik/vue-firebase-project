@@ -3,7 +3,7 @@
     <div class="card">
         <div class="card-content center-align">
             <h2 class="teal-text">Main</h2>
-            <form @submit.prevent="enterChat">
+            <form @submit.prevent="enterTheChat">
             <label for="name">Enter your name:</label>
             <input type="text" name="name" v-model="name">
               <p v-if="message" class="red-text">{{ message }}</p>
@@ -26,8 +26,9 @@ export default {
     }
   },
   methods: {
-    enterChat() {
+    enterTheChat() {
       if (this.name) {
+        this.$router.push({ name: 'Chat', params: { name: this.name} })
       } else {
         this.message = 'You must enter a name to join'
       }
